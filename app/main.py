@@ -2,6 +2,7 @@ import sys
 import re
 # import pyparsing - available if you need it!
 # import lark - available if you need it!
+
 def convert_to_list(pattern):
     pattern = pattern.replace("\\d", "[\\d]")
     pattern = pattern.replace("\\w", "[\\w]")
@@ -24,6 +25,7 @@ def convert_to_list(pattern):
     new_string = new_string.replace("]", "")
     new_string = new_string.replace("[", "")
     return new_string.split(",")
+    
 def compare(substring, pattern_list):
     bool_list = []
     for i in range(len(pattern_list)):
@@ -73,8 +75,7 @@ def single_backreferrence(word, c):
         if f"{word_list[0]} and {word_list[0]}" in c:
             return True
         else:
-            return False
-def match_pattern(input_line, pattern):
+            return Falset_line, pattern):
     if pattern[0] == "[" and pattern[-1] == "]":
         if pattern[1] == "^":
             return any(char not in pattern[1:-1] for char in input_line)
@@ -84,6 +85,7 @@ def match_pattern(input_line, pattern):
         result = re.match(pattern, input_line.strip())
         print(result)
         if result:
+def match_pattern(inpu
             return True
         else:
             return False
