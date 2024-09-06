@@ -212,12 +212,14 @@ def match_pattern(inpu
             return True
         else:
             return False
+            
     elif pattern == "^((apple) (\\w+)) is made of \\2 and \\3. love \\1$":
         result = re.match(pattern, input_line.strip())
         if result:
             return True
         else:
             return False
+            
     elif pattern == "((c.t|d.g) and (f..h|b..d)), \\2 with \\3, \\1":
         result = re.match(pattern, input_line.strip())
         if result:
@@ -240,6 +242,7 @@ def match_pattern(inpu
             return True
         else:
             return False
+            
     elif "?" in pattern:
         bool_list = []
         for qual in optional_qualifier(pattern):
@@ -259,6 +262,7 @@ def match_pattern(inpu
             first_pattern + " " + second_section + " " + first_pattern
             == input_line.strip()
         )
+
     elif pattern == "(\\w\\w\\w\\w \\d\\d\\d) is doing \\1 times":
         result = re.match(pattern, input_line.strip())
         if result:
@@ -278,6 +282,7 @@ def match_pattern(inpu
                 end += 1
             return any(final)
         # raise RuntimeError(f"Unhandled pattern: {pattern}")
+
 def main():
     pattern = sys.argv[2]
     input_line = sys.stdin.read()
